@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->string('author');
             $table->bigInteger('chapters')->unsigned()->nullable();
-            $table->enum('genre', ['romance', 'horror', 'tragedy', 'politics']);
+            $table->enum('genre', ['romance', 'horror', 'tragedy', 'politics', 'sci-fi', 'fantasy']);
             $table->timestamps();
         });
     }

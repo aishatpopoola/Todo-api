@@ -10,6 +10,20 @@ use Webpatser\Uuid\Uuid;
 
 class BookController extends Controller
 {
+    public function validateRequest($request)
+    {
+        $request->validate(
+            [
+                'name' => ['required', 'string', 'max:191'],
+                'author' => ['required', 'string', 'max:191'],
+                'chapters' => ['nullable', 'integer', 'between:1,1000'],
+                'genre' => [
+                    'required',
+                    Rule::in(['romance', 'horror', 'tragedy', 'politics']),
+                ],
+            ]
+        );
+    }
     public function getBooks($book_id = null)
     {
         if ($book_id) {
@@ -24,7 +38,7 @@ class BookController extends Controller
         } else {
             $books = Auth::user()->books()->get();
             return response(
-                [ 'book' => $books ],
+                [ 'books' => $books ],
                 200
             );
         }
@@ -32,18 +46,7 @@ class BookController extends Controller
 
     public function createBook(Request $request)
     {
-        $request->validate(
-            [
-                'name' => ['required', 'string', 'max:191'],
-                'author' => ['required', 'string', 'max:191'],
-                'chapters' => ['nullable', 'integer', 'between:1,1000'],
-                'genre' => [
-                    'required',
-                    Rule::in(['romance', 'horror', 'tragedy', 'politics']),
-                ],
-            ]
-        );
-        
+        $this->validateRequest($request);
         $book_id = utf8_encode(Uuid::generate());
         $book = new Book;
         $book->book_id = $book_id;
@@ -56,9 +59,32 @@ class BookController extends Controller
         return response(
             [
                 'message' => "Book created",
-                'token' => $book,
+                'book' => $book,
             ],
             201
+        );
+    }
+
+    public function updateBook(Request $request)
+    {
+        $this->validateRequest($request);
+        $book = Book::where('book_id', '=', $request->book_id)
+            ->where('user_id', '=', Auth::id())
+            ->first();
+        if (!$book) {
+            return response(['error' => 'Not found'], 404);
+        }
+        $book->name = $request->name;
+        $book->author = $request->author;
+        $book->chapters = $request->chapters;
+        $book->genre = $request->genre;
+        $book->save();
+        return response(
+            [
+                'message' => "Book updated",
+                'book' => $book,
+            ],
+            200
         );
     }
 }

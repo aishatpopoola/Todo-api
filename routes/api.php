@@ -11,6 +11,7 @@ Route::middleware('auth:sanctum')->group(
         // Route::get("user", [UserController::class, 'getUser'])->name('user.get');
         Route::get("books/{book_id?}", [BookController::class, 'getBooks'])->name('books.get');
         Route::post("books", [BookController::class, 'createBook'])->name('books.create');
+        Route::patch("books", [BookController::class, 'updateBook'])->name('books.update');
     }
 );
 
