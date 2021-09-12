@@ -3,11 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
 
 Route::middleware('auth:sanctum')->group(
     function () {
         Route::get("sign-out", [UserController::class, 'signOut'])->name('signout');
-        Route::get("user", [UserController::class, 'getUser'])->name('user.get');
+        // Route::get("user", [UserController::class, 'getUser'])->name('user.get');
+        Route::get("books/{book_id?}", [BookController::class, 'getBooks'])->name('books.get');
     }
 );
 
