@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             0 => array(
                 'id' => 1,
                 'name' => 'Aisha Popoola',
-                'email' => 'aishpo@gmail.com',
+                'email' => 'aisha@gmail.com',
                 'password' => Hash::make('11111111'),
                 'email_verified_at' => now(),
             ),
