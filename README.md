@@ -59,6 +59,7 @@ composer phpcbf
 ## Style Guides
 
 - [Pear Coding Standard](https://pear.php.net/manual/en/standards.php)
+- [Git Style Guide](https://udacity.github.io/git-styleguide/)
 
 ## 👤 Author
 

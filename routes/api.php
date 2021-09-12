@@ -6,10 +6,11 @@ use App\Http\Controllers\UserController;
 
 Route::middleware('auth:sanctum')->group(
     function () {
-        Route::get("logout", [UserController::class, 'logout'])->name('logout');
+        Route::get("sign-out", [UserController::class, 'signOut'])->name('signout');
         Route::get("user", [UserController::class, 'getUser'])->name('user.get');
     }
 );
 
-Route::post("register", [UserController::class, 'register'])->name('register');
-Route::post("/login", [UserController::class, 'login'])->name('login');
+Route::post("sign-up", [UserController::class, 'signUp'])->name('signup');
+Route::post("/sign-in", [UserController::class, 'signIn'])->name('signin');
+// https://peaceful-cove-38084.herokuapp.com/api/update-book
