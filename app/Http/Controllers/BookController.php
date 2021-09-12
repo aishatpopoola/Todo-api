@@ -68,9 +68,7 @@ class BookController extends Controller
     public function updateBook(Request $request)
     {
         $this->validateRequest($request);
-        $book = Book::where('book_id', '=', $request->book_id)
-            ->where('user_id', '=', Auth::id())
-            ->first();
+        $book = Auth::user()->books()->where('book_id', '=', $request->book_id)->first();
         if (!$book) {
             return response(['error' => 'Not found'], 404);
         }
@@ -83,6 +81,22 @@ class BookController extends Controller
             [
                 'message' => "Book updated",
                 'book' => $book,
+            ],
+            200
+        );
+    }
+
+    public function deleteBook($book_id)
+    {
+        $book = Auth::user()->books()->where('book_id', '=', $book_id)->first();
+        if (!$book) {
+            return response(['error' => 'Not found'], 404);
+        }
+        
+        $book->delete();
+        return response(
+            [
+                'message' => "Book deleted"
             ],
             200
         );

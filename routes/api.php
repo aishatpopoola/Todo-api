@@ -10,8 +10,9 @@ Route::middleware('auth:sanctum')->group(
         Route::get("sign-out", [UserController::class, 'signOut'])->name('signout');
         // Route::get("user", [UserController::class, 'getUser'])->name('user.get');
         Route::get("books/{book_id?}", [BookController::class, 'getBooks'])->name('books.get');
-        Route::post("books", [BookController::class, 'createBook'])->name('books.create');
-        Route::patch("books", [BookController::class, 'updateBook'])->name('books.update');
+        Route::post("books", [BookController::class, 'createBook'])->name('book.create');
+        Route::patch("books", [BookController::class, 'updateBook'])->name('book.update');
+        Route::delete("books/{book_id}", [BookController::class, 'deleteBook'])->name('book.delete');
     }
 );
 
