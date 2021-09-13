@@ -38,7 +38,7 @@ git clone https://github.com/aishatpopoola/library-api.git
 - Install Dependencies
 
 ```bash
-composer require
+composer install
 ```
 
 To Check for errors:
