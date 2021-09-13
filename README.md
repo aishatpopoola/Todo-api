@@ -1,8 +1,6 @@
-# Todo-App-Api
+# Library-App-Api
 
 > A Library App Api
-
-![screenshot](./app_screenshot.png)
 
 This project is meant to serve as the backend for a frontend Books Library app. It shows my skills in the use of laravel for backend and provides endpoints that can be used to on a frontend App. The project will utilize a JWT token which can be used to authenticate users.
 
@@ -13,7 +11,7 @@ This project is meant to serve as the backend for a frontend Books Library app. 
 - Sanctum
 
 ## Features
-### Authentication Features
+### Authentication Features - Endpoints
 - User login feature
 - User Registration feature
 - User logout feature
