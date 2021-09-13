@@ -18,4 +18,3 @@ Route::middleware('auth:sanctum')->group(
 
 Route::post("sign-up", [UserController::class, 'signUp'])->name('signup');
 Route::post("/sign-in", [UserController::class, 'signIn'])->name('signin');
-// https://peaceful-cove-38084.herokuapp.com/api/update-book
