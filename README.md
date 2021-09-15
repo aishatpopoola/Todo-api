@@ -16,7 +16,7 @@ This project is meant to serve as the backend for a frontend Books Library app. 
 - User Registration feature
 - User logout feature
 
-### Todo Feature
+### Book Feature
 - Create a Book
 - Get the lists of all Books by a user
 - Get a single Book
