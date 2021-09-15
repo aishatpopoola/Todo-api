@@ -61,6 +61,7 @@ composer phpcbf
 ## 👤 Author
 
 - Github: [@aishatpopoola](https://github.com/aishatpopoola/)
+- LinkedIn: [aishat-popoola](www.linkedin.com/in/aishat-popoola)
 
 ## 🤝 Contributing
 
