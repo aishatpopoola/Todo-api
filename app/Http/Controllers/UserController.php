@@ -29,6 +29,7 @@ class UserController extends Controller
         return response(
             [
                 'message' => "You have succesfully signed up",
+                'username' => $user->name,
                 'token' => $token,
             ],
             201
@@ -54,6 +55,7 @@ class UserController extends Controller
         return response(
             [
                 'message' => "You have succesfully signed in",
+                'username' => $user->name,
                 'token' => $token,
             ],
             200

@@ -25,7 +25,7 @@ This project is meant to serve as the backend for a frontend Books Library app. 
 
 ## Base APi Endpoint
 
-[Coming soon](https://livedemo.com)
+[Api Endpoints](https://sleepy-dusk-82973.herokuapp.com/api/)
 
 ### Development (Running locally)
 
