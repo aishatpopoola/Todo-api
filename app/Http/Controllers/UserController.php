@@ -49,7 +49,7 @@ class UserController extends Controller
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response(['error' => 'Incorrect Credentials.'], 422);
         }
-
+        $user->tokens()->delete();
         $token = $user->createToken($user->name . 'sign in')->plainTextToken;
 
         return response(
